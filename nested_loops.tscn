@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://blcfy4coaqyhi"]
+
+[ext_resource type="Texture2D" uid="uid://dqju2u0641use" path="res://art/axolotl -1.png.png" id="1_8equ4"]
+[ext_resource type="Texture2D" uid="uid://kkok8sfqjlw1" path="res://art/axolotl -2.png.png" id="2_5llw0"]
+[ext_resource type="Texture2D" uid="uid://c4ui55oodsi3w" path="res://art/axolotl -3.png.png" id="3_su26o"]
+[ext_resource type="Script" uid="uid://e5ut7c13w8ci" path="res://animated_sprite_2d.gd" id="4_br3hb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ljfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8equ4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5llw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_su26o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="nested loops" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ljfd")
+script = ExtResource("4_br3hb")

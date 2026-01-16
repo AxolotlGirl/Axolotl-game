@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://csq5uk1cyuwld"]
+
+[ext_resource type="Texture2D" uid="uid://bfelhxpykt0mn" path="res://art/bag enemy1.png.png" id="1_3yqyl"]
+[ext_resource type="Script" uid="uid://5e0vb6egucdl" path="res://enemy.gd" id="1_wujgv"]
+[ext_resource type="Texture2D" uid="uid://t7v3m3lvj1rd" path="res://art/bag enemy2.png.png" id="2_wujgv"]
+[ext_resource type="Texture2D" uid="uid://cs1scv3jcft41" path="res://art/bag enemy3.png.png" id="3_hb8ge"]
+[ext_resource type="Texture2D" uid="uid://ctrd6ou0d865y" path="res://art/bottle enemy-1.png.png" id="4_e1ltt"]
+[ext_resource type="Texture2D" uid="uid://bd5n3nblkf0v6" path="res://art/bottle enemy-2.png.png" id="5_dxifv"]
+[ext_resource type="Texture2D" uid="uid://c78irqxle3e2b" path="res://art/bottle enemy-3.png.png" id="6_pwjut"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0g06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3yqyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wujgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hb8ge")
+}],
+"loop": true,
+"name": &"Bag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e1ltt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dxifv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pwjut")
+}],
+"loop": true,
+"name": &"Bottle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ar8e5"]
+radius = 23.0
+height = 64.0
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_wujgv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_n0g06")
+animation = &"Bag"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ar8e5")

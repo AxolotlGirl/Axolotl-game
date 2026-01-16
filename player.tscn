@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bws0360j76bk4"]
+
+[ext_resource type="Script" uid="uid://blobb3drikr6h" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://kkok8sfqjlw1" path="res://art/axolotl -2.png.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c4ui55oodsi3w" path="res://art/axolotl -3.png.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dqju2u0641use" path="res://art/axolotl -1.png.png" id="4_hqtel"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hqtel")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_hqtel")
+animation = &"walk"
