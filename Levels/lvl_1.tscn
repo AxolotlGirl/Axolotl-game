@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://budbc3yf87i3h"]
+
+[ext_resource type="Texture2D" uid="uid://b17vml2rg3f4r" path="res://art/Blockz/Blocks_1.png" id="1_v5c3n"]
+[ext_resource type="Texture2D" uid="uid://bdbko6ihccc87" path="res://art/Blockz/Blocks_2..png" id="2_emd3i"]
+[ext_resource type="PackedScene" uid="uid://duokkq5ut0rlt" path="res://Levels/player.tscn" id="3_gatbk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxwy5"]
+texture = ExtResource("1_v5c3n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2awe"]
+texture = ExtResource("2_emd3i")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_bxvs1"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qxwy5")
+sources/1 = SubResource("TileSetAtlasSource_n2awe")
+
+[node name="Lvl 1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_bxvs1")
+format = 2
+layer_0/tile_data = PackedInt32Array(131067, 1, 0, 131068, 1, 1, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 1, 65538, 1, 0, 65539, 1, 0, 65540, 1, 1, 65541, 1, 0, 131077, 1, 0, 131076, 1, 0, 131075, 1, 0, 131074, 1, 0, 131073, 1, 0, 131072, 1, 0, 196607, 1, 0, 196606, 1, 1, 196605, 1, 0, 196604, 1, 0, 196603, 1, 0, -65531, 1, 0, 5, 0, 0, -65533, 0, 0, 3, 0, 0, 1, 0, 0, -131067, 0, 0, -196601, 0, 0, -131065, 1, 0, -65529, 1, 0, 7, 65536, 0, 65542, 1, 1, 131078, 1, 0, 65543, 1, 0, 131079, 1, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 2, 0, 0, 4, 0, 0, 6, 0, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_gatbk")]
+jump_power = 300

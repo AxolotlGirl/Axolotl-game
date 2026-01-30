@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 func start(pos):
 	position = pos
+	
 	show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

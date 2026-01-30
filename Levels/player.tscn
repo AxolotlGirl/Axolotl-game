@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://duokkq5ut0rlt"]
+
+[ext_resource type="Script" uid="uid://bchg2ff07xl0q" path="res://Levels/player_controller.gd" id="1_cko2x"]
+[ext_resource type="Texture2D" uid="uid://dqju2u0641use" path="res://art/axolotl -1.png.png" id="1_vyvq2"]
+[ext_resource type="Texture2D" uid="uid://kkok8sfqjlw1" path="res://art/axolotl -2.png.png" id="2_5rgs0"]
+[ext_resource type="Texture2D" uid="uid://c4ui55oodsi3w" path="res://art/axolotl -3.png.png" id="3_g0nkr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cko2x"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeq3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5rgs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g0nkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_vyvq2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_cko2x")
+jump_power = 1000
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -15)
+zoom = Vector2(6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_cko2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xeq3v")
+animation = &"walk"
