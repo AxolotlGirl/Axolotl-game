@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ded4h2v2edfcl"]
+
+[ext_resource type="Script" uid="uid://bj835t17euao2" path="res://broccoli.gd" id="1_60hhj"]
+[ext_resource type="Texture2D" uid="uid://dst06kvmx7yq4" path="res://art/NPC-1.png.png" id="1_mhkwh"]
+[ext_resource type="Texture2D" uid="uid://ow6at1de28sa" path="res://art/NPC-2.png.png" id="2_60hhj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42pwp"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iumqg"]
+animations = [{
+"frames": [{
+"duration": 4.5,
+"texture": ExtResource("1_mhkwh")
+}, {
+"duration": 4.5,
+"texture": ExtResource("2_60hhj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Broccoli" type="Area2D"]
+script = ExtResource("1_60hhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_42pwp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iumqg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -53.0
+offset_top = -48.0
+offset_right = -8.0
+offset_bottom = 1.0
+text = "hello 
+world"
