@@ -34,9 +34,15 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iumqg")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -53.0
-offset_top = -48.0
-offset_right = -8.0
-offset_bottom = 1.0
-text = "hello 
-world"
+offset_left = -137.0
+offset_top = 22.0
+offset_right = 230.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Axolotls (Ambystoma mexicanum) are critically 
+endangered, fully aquatic salamanders native
+ only to the Xochimilco lake complex near
+ Mexico City. You Won!!!!!!!!!!!"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

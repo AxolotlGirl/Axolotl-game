@@ -1,5 +1,6 @@
 extends Area2D
 
+signal player_died
 var speed = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,3 +13,11 @@ func _process(delta: float) -> void:
 	#position.x += speed
 	#position.y += speed
 	pass
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == ("CharacterBody2D"):
+		print("WAAAAAAAAAaaaaAAAAAHhhhHH")
+		emit_signal("player_died")
+		

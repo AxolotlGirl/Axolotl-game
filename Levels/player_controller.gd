@@ -7,6 +7,10 @@ extends CharacterBody2D
 
 var direction = 0
 
+func respawn():
+	print("respawn")
+	position = Vector2(0, 0)
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -21,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * speed
-		print(direction)
 		if (direction == 1):
 			$AnimatedSprite2D.flip_h = direction
 		else:
